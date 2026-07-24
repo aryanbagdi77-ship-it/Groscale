@@ -492,9 +492,11 @@ section{ padding:120px 0; }
   margin:16px 0 28px;
   color:var(--text);
 }
-.contact-details{ display:flex; flex-direction:column; gap:10px; margin-bottom:28px; }
+.contact-details{ display:flex; flex-direction:column; gap:12px; margin-bottom:28px; }
 .contact-details a, .contact-details span{
-  font-size:15px;
+  font-family:var(--mono);
+  font-size:14px;
+  letter-spacing:0.02em;
   color:var(--muted);
 }
 .contact-details a:hover{ color:var(--accent); }
@@ -617,6 +619,9 @@ footer{ padding:64px 0 40px; }
 @media (max-width: 860px){
   .nav-links{ display:none; }
   .nav-burger{ display:flex; }
+  .nav-logo{ position:static; left:auto; top:auto; transform:none; }
+  .nav-cta .btn-primary{ display:none; }
+  .hero-chart{ display:none; }
   .about-grid{ grid-template-columns:1fr; gap:24px; }
   .service-grid{ grid-template-columns:1fr; }
   .strip-grid{ grid-template-columns:1fr; }
