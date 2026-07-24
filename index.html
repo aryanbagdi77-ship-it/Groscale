@@ -1,1 +1,558 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Groscale — Performance Marketing Agency, Dubai</title>
+<meta name="description" content="Groscale is a Dubai-based performance marketing agency turning ad spend into a compounding growth curve for e-commerce and lead-gen brands across the GCC and beyond.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@600;700;800;900&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="icon" href="logo.png">
+<style>
+  :root{
+    --ink:#0A0A0B;
+    --panel:#111113;
+    --paper:#F4F2EC;
+    --accent:#FF3402;
+    --accent-dim:#B32701;
+    --line:rgba(244,242,236,0.12);
+    --line-strong:rgba(244,242,236,0.24);
+    --muted:#96959A;
+    --text:#F4F2EC;
+    --display: 'Big Shoulders Display', sans-serif;
+    --body: 'Inter', sans-serif;
+    --mono: 'JetBrains Mono', monospace;
+  }
 
+  *{ margin:0; padding:0; box-sizing:border-box; }
+  html{ scroll-behavior:smooth; }
+  body{
+    background:var(--ink);
+    color:var(--text);
+    font-family:var(--body);
+    line-height:1.5;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  img{ display:block; max-width:100%; }
+  a{ color:inherit; text-decoration:none; }
+  ul{ list-style:none; }
+
+  .wrap{ max-width:1240px; margin:0 auto; padding:0 32px; }
+
+  h1,h2,h3{ font-family:var(--display); font-weight:800; letter-spacing:-0.01em; text-transform:uppercase; line-height:0.98; }
+
+  .eyebrow{
+    font-family:var(--mono);
+    font-size:12px;
+    letter-spacing:0.16em;
+    text-transform:uppercase;
+    color:var(--accent);
+    display:flex;
+    align-items:center;
+    gap:10px;
+  }
+  .eyebrow::before{
+    content:"";
+    width:14px; height:2px;
+    background:var(--accent);
+    display:inline-block;
+  }
+
+  /* ===== NAV ===== */
+  .nav{
+    position:fixed; top:0; left:0; right:0; z-index:100;
+    background:rgba(10,10,11,0.72);
+    backdrop-filter:blur(14px);
+    -webkit-backdrop-filter:blur(14px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav-inner{
+    max-width:1240px; margin:0 auto; padding:0 32px;
+    display:grid;
+    grid-template-columns:1fr auto 1fr;
+    align-items:center;
+    height:78px;
+    gap:24px;
+  }
+  .nav-links{ display:flex; gap:32px; }
+  .nav-links a{
+    font-family:var(--mono);
+    font-size:12px;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+    color:var(--muted);
+    transition:color .2s ease;
+    position:relative;
+  }
+  .nav-links a:hover{ color:var(--text); }
+  .nav-logo{ display:flex; justify-content:center; }
+  .nav-logo img{ height:26px; width:auto; }
+  .nav-cta{ display:flex; justify-content:flex-end; }
+  .btn{
+    font-family:var(--mono);
+    font-size:12px;
+    letter-spacing:0.06em;
+    text-transform:uppercase;
+    padding:12px 20px;
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    border:1px solid var(--line-strong);
+    clip-path:polygon(0 0, 100% 0, 100% 70%, 92% 100%, 0 100%);
+    transition:border-color .2s ease, background .2s ease, transform .2s ease;
+    white-space:nowrap;
+  }
+  .btn-primary{ background:var(--accent); border-color:var(--accent); color:#0A0A0B; font-weight:600; }
+  .btn-primary:hover{ transform:translateY(-2px); background:#ff4a19; }
+  .btn-ghost{ color:var(--text); }
+  .btn-ghost:hover{ border-color:var(--accent); color:var(--accent); }
+  .mobile-links{ display:none; }
+
+  /* ===== HERO ===== */
+  .hero{
+    position:relative;
+    padding:190px 0 110px;
+    border-bottom:1px solid var(--line);
+    overflow:hidden;
+  }
+  .hero-chart{
+    position:absolute;
+    top:0; left:0; right:0;
+    width:100%; height:100%;
+    opacity:0.5;
+    pointer-events:none;
+  }
+  .hero-chart path{
+    fill:none;
+    stroke:var(--accent);
+    stroke-width:2;
+    stroke-linejoin:miter;
+    stroke-dasharray:2600;
+    stroke-dashoffset:2600;
+    animation:draw 2.6s cubic-bezier(.16,.8,.3,1) .3s forwards;
+  }
+  @keyframes draw{ to{ stroke-dashoffset:0; } }
+
+  .hero-inner{ position:relative; z-index:2; max-width:920px; }
+  .hero h1{
+    font-size:clamp(48px, 8vw, 104px);
+    margin:22px 0 28px;
+  }
+  .hero h1 span{ color:var(--accent); }
+  .hero p{
+    font-size:18px;
+    color:var(--muted);
+    max-width:560px;
+    margin-bottom:44px;
+  }
+  .hero-actions{ display:flex; gap:16px; flex-wrap:wrap; }
+
+  /* ===== TICKER ===== */
+  .ticker{
+    border-bottom:1px solid var(--line);
+    background:var(--panel);
+    overflow:hidden;
+    white-space:nowrap;
+  }
+  .ticker-track{
+    display:inline-flex;
+    animation:scroll 26s linear infinite;
+  }
+  .ticker-item{
+    font-family:var(--mono);
+    font-size:13px;
+    letter-spacing:0.05em;
+    text-transform:uppercase;
+    padding:16px 32px;
+    display:inline-flex;
+    align-items:center;
+    gap:32px;
+    color:var(--text);
+  }
+  .ticker-item b{ color:var(--accent); }
+  .ticker-item::after{ content:"//"; color:var(--line-strong); margin-left:32px; }
+  @keyframes scroll{
+    from{ transform:translateX(0); }
+    to{ transform:translateX(-50%); }
+  }
+
+  /* ===== SECTION HEADS ===== */
+  section{ padding:120px 0; }
+  .sec-head{ max-width:640px; margin-bottom:64px; }
+  .sec-head h2{ font-size:clamp(34px,4.4vw,56px); margin-top:16px; }
+  .sec-head p{ color:var(--muted); margin-top:18px; font-size:16px; max-width:520px; }
+
+  .services{ border-bottom:1px solid var(--line); }
+  .service-grid{
+    display:grid;
+    grid-template-columns:repeat(3, 1fr);
+    gap:1px;
+    background:var(--line);
+    border:1px solid var(--line);
+  }
+  .service-card{
+    background:var(--ink);
+    padding:40px 32px;
+    position:relative;
+    transition:background .25s ease;
+  }
+  .service-card:hover{ background:var(--panel); }
+  .service-card:hover .service-num{ color:var(--accent); }
+  .service-num{
+    font-family:var(--mono);
+    font-size:13px;
+    color:var(--muted);
+    transition:color .2s ease;
+  }
+  .service-card h3{
+    font-size:26px;
+    margin:20px 0 12px;
+    text-transform:none;
+    letter-spacing:0;
+  }
+  .service-card p{ color:var(--muted); font-size:14.5px; }
+
+  /* ===== RESULTS ===== */
+  .results{ border-bottom:1px solid var(--line); background:var(--panel); }
+  .results-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:48px;
+  }
+  .stat b{
+    font-family:var(--display);
+    font-weight:900;
+    font-size:clamp(40px,4.6vw,64px);
+    color:var(--accent);
+    display:block;
+    line-height:1;
+  }
+  .stat span{
+    font-family:var(--mono);
+    font-size:12px;
+    letter-spacing:0.06em;
+    text-transform:uppercase;
+    color:var(--muted);
+    display:block;
+    margin-top:12px;
+  }
+
+  /* ===== PROCESS ===== */
+  .process-list{ border-top:1px solid var(--line); }
+  .process-item{
+    display:grid;
+    grid-template-columns:100px 1fr 1fr;
+    gap:32px;
+    align-items:start;
+    padding:36px 0;
+    border-bottom:1px solid var(--line);
+  }
+  .process-item .p-num{
+    font-family:var(--mono);
+    font-size:14px;
+    color:var(--accent);
+    padding-top:4px;
+  }
+  .process-item h3{
+    font-size:28px;
+    text-transform:none;
+    letter-spacing:0;
+  }
+  .process-item p{ color:var(--muted); font-size:15px; padding-top:6px; }
+
+  /* ===== TESTIMONIAL ===== */
+  .quote{ border-bottom:1px solid var(--line); }
+  .quote blockquote{
+    font-family:var(--display);
+    font-weight:700;
+    text-transform:none;
+    letter-spacing:0;
+    font-size:clamp(26px,3.4vw,42px);
+    line-height:1.25;
+    max-width:900px;
+  }
+  .quote blockquote span{ color:var(--accent); }
+  .quote-attr{
+    margin-top:32px;
+    font-family:var(--mono);
+    font-size:13px;
+    color:var(--muted);
+    text-transform:uppercase;
+    letter-spacing:0.05em;
+  }
+
+  /* ===== CTA ===== */
+  .cta{
+    text-align:center;
+    border-bottom:1px solid var(--line);
+    position:relative;
+  }
+  .cta h2{ font-size:clamp(38px,6vw,80px); margin:20px auto 32px; max-width:900px; }
+  .cta .eyebrow{ justify-content:center; }
+  .cta-actions{ display:flex; justify-content:center; gap:16px; flex-wrap:wrap; }
+
+  /* ===== FOOTER ===== */
+  footer{ padding:64px 0 40px; }
+  .footer-top{
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-start;
+    flex-wrap:wrap;
+    gap:40px;
+    padding-bottom:48px;
+    border-bottom:1px solid var(--line);
+  }
+  .footer-brand img{ height:24px; margin-bottom:16px; }
+  .footer-brand p{ color:var(--muted); font-size:14px; max-width:280px; }
+  .footer-cols{ display:flex; gap:64px; flex-wrap:wrap; }
+  .footer-col h4{
+    font-family:var(--mono);
+    font-size:12px;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+    color:var(--muted);
+    margin-bottom:16px;
+  }
+  .footer-col a, .footer-col li{
+    display:block;
+    font-size:14.5px;
+    margin-bottom:10px;
+    color:var(--text);
+  }
+  .footer-col a:hover{ color:var(--accent); }
+  .footer-bottom{
+    display:flex;
+    justify-content:space-between;
+    padding-top:28px;
+    font-family:var(--mono);
+    font-size:12px;
+    color:var(--muted);
+    flex-wrap:wrap;
+    gap:12px;
+  }
+
+  @media (max-width: 860px){
+    .nav-links{ display:none; }
+    .service-grid{ grid-template-columns:1fr; }
+    .results-grid{ grid-template-columns:1fr 1fr; row-gap:36px; }
+    .process-item{ grid-template-columns:50px 1fr; }
+    .process-item p{ grid-column:2; }
+    .footer-top{ flex-direction:column; }
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    html{ scroll-behavior:auto; }
+    .hero-chart path{ animation:none; stroke-dashoffset:0; }
+    .ticker-track{ animation:none; }
+  }
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <div class="nav-links">
+      <a href="#services">Services</a>
+      <a href="#results">Results</a>
+      <a href="#process">Process</a>
+    </div>
+    <div class="nav-logo">
+      <a href="#top"><img src="logo.png" alt="Groscale"></a>
+    </div>
+    <div class="nav-cta">
+      <a class="btn btn-primary" href="#contact">Book a Call</a>
+    </div>
+  </div>
+</nav>
+
+<main id="top">
+
+  <section class="hero">
+    <svg class="hero-chart" viewBox="0 0 1240 560" preserveAspectRatio="none">
+      <path d="M -50 470 L 120 470 L 220 160 L 340 430 L 470 60 L 590 380 L 720 210 L 860 470 L 1000 40 L 1150 300 L 1300 -40" />
+    </svg>
+    <div class="wrap hero-inner">
+      <div class="eyebrow">Performance Marketing · Dubai, UAE</div>
+      <h1>We turn ad spend<br>into a <span>growth curve.</span></h1>
+      <p>Groscale is a Dubai-based performance marketing agency. We plan, build and scale paid acquisition for e-commerce and lead-gen brands across the GCC, MENA and beyond — measured in revenue, not impressions.</p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="#contact">Book a Call</a>
+        <a class="btn btn-ghost" href="#results">See the Numbers</a>
+      </div>
+    </div>
+  </section>
+
+  <div class="ticker" aria-hidden="true">
+    <div class="ticker-track">
+      <span class="ticker-item"><b>+312%</b> Avg. ROAS Lift</span>
+      <span class="ticker-item"><b>$48M+</b> Ad Spend Managed</span>
+      <span class="ticker-item"><b>140+</b> Campaigns Launched</span>
+      <span class="ticker-item">GCC · MENA · Global</span>
+      <span class="ticker-item"><b>-34%</b> Avg. CAC Reduction</span>
+      <span class="ticker-item"><b>+312%</b> Avg. ROAS Lift</span>
+      <span class="ticker-item"><b>$48M+</b> Ad Spend Managed</span>
+      <span class="ticker-item"><b>140+</b> Campaigns Launched</span>
+      <span class="ticker-item">GCC · MENA · Global</span>
+      <span class="ticker-item"><b>-34%</b> Avg. CAC Reduction</span>
+    </div>
+  </div>
+
+  <section class="services" id="services">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="eyebrow">What We Do</div>
+        <h2>Full-funnel acquisition,<br>run like a trading desk.</h2>
+        <p>Every channel reports to one number: profitable revenue. We build, test and reallocate spend the way a desk manages a portfolio.</p>
+      </div>
+    </div>
+    <div class="service-grid">
+      <div class="service-card">
+        <div class="service-num">01</div>
+        <h3>Paid Social</h3>
+        <p>Meta, TikTok &amp; Snapchat campaigns built for the way GCC audiences actually shop and scroll.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-num">02</div>
+        <h3>Paid Search &amp; Shopping</h3>
+        <p>Google &amp; Bing account structures engineered for intent capture and margin, not just clicks.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-num">03</div>
+        <h3>Creative &amp; Content</h3>
+        <p>In-house scripting, shooting and editing — new creative tested weekly, not quarterly.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-num">04</div>
+        <h3>Landing Pages &amp; CRO</h3>
+        <p>Post-click experiences built and tested to convert the traffic you're already paying for.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-num">05</div>
+        <h3>Marketplace Growth</h3>
+        <p>Amazon, Noon &amp; retail media management for brands selling across the region's marketplaces.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-num">06</div>
+        <h3>Analytics &amp; Attribution</h3>
+        <p>Custom dashboards that tie every dirham of spend to pipeline and revenue, in real time.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="results" id="results">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="eyebrow">Track Record</div>
+        <h2>Numbers our clients<br>check every Monday.</h2>
+      </div>
+      <div class="results-grid">
+        <div class="stat">
+          <b>312%</b>
+          <span>Average ROAS Lift</span>
+        </div>
+        <div class="stat">
+          <b>34%</b>
+          <span>Average CAC Reduction</span>
+        </div>
+        <div class="stat">
+          <b>$48M</b>
+          <span>Ad Spend Under Management</span>
+        </div>
+        <div class="stat">
+          <b>90</b>
+          <span>Days to First Scale Milestone</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="process" id="process">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="eyebrow">How We Work</div>
+        <h2>A straight line from<br>audit to scale.</h2>
+      </div>
+      <div class="process-list">
+        <div class="process-item">
+          <div class="p-num">01</div>
+          <h3>Audit &amp; Baseline</h3>
+          <p>We pull apart your existing accounts, creative and data to find where spend is leaking before we plan a single campaign.</p>
+        </div>
+        <div class="process-item">
+          <div class="p-num">02</div>
+          <h3>Strategy &amp; Media Plan</h3>
+          <p>A channel-by-channel plan with targets, budgets and creative direction, agreed before a single dirham moves.</p>
+        </div>
+        <div class="process-item">
+          <div class="p-num">03</div>
+          <h3>Launch &amp; Optimize</h3>
+          <p>Campaigns go live within two weeks. Weekly optimization cycles cut what's not working and double down on what is.</p>
+        </div>
+        <div class="process-item">
+          <div class="p-num">04</div>
+          <h3>Scale &amp; Compound</h3>
+          <p>Once a channel proves profitable, we scale budget systematically while protecting your margin and CAC.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="quote">
+    <div class="wrap">
+      <blockquote>"Most agencies report on activity. <span>Groscale reports on revenue</span> — and that's the only report that ever mattered to us."</blockquote>
+      <div class="quote-attr">— Founder, DTC Beauty Brand, Dubai</div>
+    </div>
+  </section>
+
+  <section class="cta" id="contact">
+    <div class="wrap">
+      <div class="eyebrow">Let's Talk</div>
+      <h2>Ready to scale<br>what's already working?</h2>
+      <div class="cta-actions">
+        <a class="btn btn-primary" href="mailto:hello@groscale.com">Book a Call</a>
+        <a class="btn btn-ghost" href="mailto:hello@groscale.com">hello@groscale.com</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <img src="logo.png" alt="Groscale">
+        <p>Performance marketing agency based in Dubai, UAE — building growth engines for brands across the GCC and beyond.</p>
+      </div>
+      <div class="footer-cols">
+        <div class="footer-col">
+          <h4>Company</h4>
+          <a href="#services">Services</a>
+          <a href="#results">Results</a>
+          <a href="#process">Process</a>
+        </div>
+        <div class="footer-col">
+          <h4>Contact</h4>
+          <a href="mailto:hello@groscale.com">hello@groscale.com</a>
+          <a href="tel:+97140000000">+971 4 000 0000</a>
+          <span>Dubai, United Arab Emirates</span>
+        </div>
+        <div class="footer-col">
+          <h4>Follow</h4>
+          <a href="#">Instagram</a>
+          <a href="#">LinkedIn</a>
+          <a href="#">TikTok</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Groscale. All rights reserved.</span>
+      <span>Dubai, UAE</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
