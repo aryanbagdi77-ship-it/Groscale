@@ -328,33 +328,49 @@ section{ padding:120px 0; }
 .strip-label b{ display:block; font-family:var(--display); font-size:22px; text-transform:uppercase; color:var(--text); font-weight:800; margin-top:4px; }
 
 /* ===== PORTFOLIO ===== */
-.portfolio{ border-bottom:1px solid var(--line); }
+.portfolio-hero{
+  padding:170px 0 56px;
+}
+.portfolio-hero h1{
+  font-size:clamp(40px, 6vw, 76px);
+  margin:16px 0 20px;
+}
+.portfolio-hero p{
+  color:var(--muted);
+  font-size:17px;
+  max-width:600px;
+}
+.portfolio{
+  padding:0 0 120px;
+  border-bottom:1px solid var(--line);
+}
 .portfolio-grid{
   display:grid;
   grid-template-columns:repeat(3, 1fr);
-  gap:1px;
-  background:var(--line);
-  border:1px solid var(--line);
+  gap:28px;
 }
 .portfolio-card{
-  position:relative;
-  display:block;
-  aspect-ratio:4/5;
-  overflow:hidden;
+  display:flex;
+  flex-direction:column;
   background:var(--panel);
+  border:1px solid var(--line);
+  border-radius:14px;
+  overflow:hidden;
+  transition:transform .3s ease, border-color .3s ease;
 }
+.portfolio-card:hover{ transform:translateY(-4px); border-color:var(--line-strong); }
 .portfolio-card img{
-  position:absolute; inset:0;
-  width:100%; height:100%;
+  display:block;
+  width:100%;
+  aspect-ratio:16/10;
   object-fit:cover;
-  transition:transform .5s ease;
+  object-position:center top;
 }
-.portfolio-card:hover img{ transform:scale(1.06); }
-.portfolio-overlay{
-  position:absolute; inset:0;
-  display:flex; flex-direction:column; justify-content:flex-end;
-  padding:24px;
-  background:linear-gradient(180deg, rgba(10,10,11,0) 45%, rgba(10,10,11,0.94) 100%);
+.portfolio-info{
+  padding:22px 22px 24px;
+  display:flex;
+  flex-direction:column;
+  gap:8px;
 }
 .portfolio-tag{
   font-family:var(--mono);
@@ -362,14 +378,12 @@ section{ padding:120px 0; }
   letter-spacing:0.06em;
   text-transform:uppercase;
   color:var(--accent);
-  margin-bottom:8px;
 }
-.portfolio-overlay h3{
-  font-size:22px;
+.portfolio-info h3{
+  font-size:20px;
   text-transform:none;
   letter-spacing:0;
   color:var(--text);
-  margin-bottom:6px;
 }
 .portfolio-services{
   font-family:var(--mono);
