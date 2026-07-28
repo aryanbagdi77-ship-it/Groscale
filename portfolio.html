@@ -56,20 +56,43 @@
 <main id="top">
 
   <section class="portfolio-hero">
+    <div class="wrap portfolio-hero-grid">
+      <h1>Our<br>Portfolio</h1>
+      <p>Every project is built to blend creative that stops the scroll with results you can actually measure.</p>
+    </div>
+  </section>
+
+  <section class="portfolio-filters">
     <div class="wrap">
-      <div class="eyebrow">Our Work</div>
-      <h1>Real brands,<br>real campaigns.</h1>
-      <p>A selection of the ads, content and creative we've produced for clients across F&amp;B, FMCG and lifestyle — Google Ads, Meta Ads, SEO, and the design behind them.</p>
+      <div class="filter-bar">
+        <button class="filter-pill active" data-filter="all">View All</button>
+        <button class="filter-pill" data-filter="Meta Ads">Meta Ads</button>
+        <button class="filter-pill" data-filter="SEO">SEO</button>
+        <button class="filter-pill" data-filter="Graphic Design">Graphic Design</button>
+        <button class="filter-pill" data-filter="Content Creation">Content Creation</button>
+        <button class="filter-pill" data-filter="Website Design">Website Design</button>
+        <select class="filter-select" id="industry-filter">
+          <option value="all">Industries</option>
+          <option value="F&amp;B">F&amp;B</option>
+          <option value="FMCG">FMCG</option>
+          <option value="Tech">Tech</option>
+          <option value="Fashion">Fashion</option>
+          <option value="Finance">Finance</option>
+          <option value="Events">Events</option>
+        </select>
+      </div>
     </div>
   </section>
 
   <section class="portfolio" id="portfolio">
     <div class="wrap">
       <div class="portfolio-grid">
-        <a href="project-greenwich.html" class="portfolio-card">
-          <img src="greenwich.webp" alt="Greenwich pizza campaign creative" loading="lazy">
+        <a href="project-greenwich.html" class="portfolio-card" data-services="Meta Ads,Graphic Design" data-industry="F&amp;B">
+          <div class="portfolio-media">
+            <img src="greenwich.webp" alt="Greenwich pizza campaign creative" loading="lazy">
+            <span class="portfolio-badge">F&amp;B · Quick Service</span>
+          </div>
           <div class="portfolio-info">
-            <span class="portfolio-tag">F&amp;B · Quick Service</span>
             <h3>Greenwich</h3>
             <p class="portfolio-desc">Creative for a new 4-cheese pizza launch, built to stop the scroll and drive same-week footfall.</p>
             <div class="portfolio-metrics">
@@ -80,10 +103,12 @@
             <span class="portfolio-link">View Project →</span>
           </div>
         </a>
-        <a href="project-jollibee.html" class="portfolio-card">
-          <img src="jollibee.webp" alt="Jollibee Creamy Floats campaign creative" loading="lazy">
+        <a href="project-jollibee.html" class="portfolio-card" data-services="Meta Ads,Content Creation" data-industry="F&amp;B">
+          <div class="portfolio-media">
+            <img src="jollibee.webp" alt="Jollibee Creamy Floats campaign creative" loading="lazy">
+            <span class="portfolio-badge">F&amp;B · Quick Service</span>
+          </div>
           <div class="portfolio-info">
-            <span class="portfolio-tag">F&amp;B · Quick Service</span>
             <h3>Jollibee</h3>
             <p class="portfolio-desc">Launch creative for a new seasonal drinks line, pushed across paid social to build awareness fast.</p>
             <div class="portfolio-metrics">
@@ -94,10 +119,12 @@
             <span class="portfolio-link">View Project →</span>
           </div>
         </a>
-        <a href="project-pho24.html" class="portfolio-card">
-          <img src="pho24.webp" alt="Pho24 campaign creative" loading="lazy">
+        <a href="project-pho24.html" class="portfolio-card" data-services="SEO,Graphic Design" data-industry="F&amp;B">
+          <div class="portfolio-media">
+            <img src="pho24.webp" alt="Pho24 campaign creative" loading="lazy">
+            <span class="portfolio-badge">F&amp;B · Restaurant</span>
+          </div>
           <div class="portfolio-info">
-            <span class="portfolio-tag">F&amp;B · Restaurant</span>
             <h3>Pho24</h3>
             <p class="portfolio-desc">An SEO-led content refresh bringing new ingredient and menu stories into organic search.</p>
             <div class="portfolio-metrics">
@@ -108,10 +135,12 @@
             <span class="portfolio-link">View Project →</span>
           </div>
         </a>
-        <a href="project-pappis.html" class="portfolio-card">
-          <img src="pappis.webp" alt="Pappi's Banana Bread campaign creative" loading="lazy">
+        <a href="project-pappis.html" class="portfolio-card" data-services="Website Design,Content Creation" data-industry="F&amp;B">
+          <div class="portfolio-media">
+            <img src="pappis.webp" alt="Pappi's Banana Bread campaign creative" loading="lazy">
+            <span class="portfolio-badge">F&amp;B · Bakery</span>
+          </div>
           <div class="portfolio-info">
-            <span class="portfolio-tag">F&amp;B · Bakery</span>
             <h3>Pappi's Banana Bread</h3>
             <p class="portfolio-desc">Warm, illustrated brand storytelling carried across the site and social to build a distinct identity.</p>
             <div class="portfolio-metrics">
@@ -122,10 +151,12 @@
             <span class="portfolio-link">View Project →</span>
           </div>
         </a>
-        <a href="project-fitbar.html" class="portfolio-card">
-          <img src="fitbar.webp" alt="Fitbar campaign creative" loading="lazy">
+        <a href="project-fitbar.html" class="portfolio-card" data-services="Meta Ads,Graphic Design" data-industry="FMCG">
+          <div class="portfolio-media">
+            <img src="fitbar.webp" alt="Fitbar campaign creative" loading="lazy">
+            <span class="portfolio-badge">FMCG · Health &amp; Wellness</span>
+          </div>
           <div class="portfolio-info">
-            <span class="portfolio-tag">FMCG · Health &amp; Wellness</span>
             <h3>Fitbar</h3>
             <p class="portfolio-desc">Ingredient-led creative breaking down exactly what's in the bar, built to earn trust at a glance.</p>
             <div class="portfolio-metrics">
@@ -136,10 +167,12 @@
             <span class="portfolio-link">View Project →</span>
           </div>
         </a>
-        <a href="project-wafello.html" class="portfolio-card">
-          <img src="wafello.webp" alt="Wafello campaign creative" loading="lazy">
+        <a href="project-wafello.html" class="portfolio-card" data-services="Content Creation,Meta Ads" data-industry="FMCG">
+          <div class="portfolio-media">
+            <img src="wafello.webp" alt="Wafello campaign creative" loading="lazy">
+            <span class="portfolio-badge">FMCG · Snacks</span>
+          </div>
           <div class="portfolio-info">
-            <span class="portfolio-tag">FMCG · Snacks</span>
             <h3>Wafello</h3>
             <p class="portfolio-desc">Packaging-first social creative built around the product's Italian wafer heritage.</p>
             <div class="portfolio-metrics">
@@ -147,6 +180,118 @@
               <div class="pf-metric"><b>95K</b><span>Reach</span></div>
             </div>
             <span class="portfolio-services">Content Creation, Meta Ads</span>
+            <span class="portfolio-link">View Project →</span>
+          </div>
+        </a>
+        <a href="project-sparkai.html" class="portfolio-card" data-services="Website Design,Content Creation" data-industry="Tech">
+          <div class="portfolio-media">
+            <img src="sparkai.webp" alt="Spark AI website design" loading="lazy">
+            <span class="portfolio-badge">Tech · AI Automation</span>
+          </div>
+          <div class="portfolio-info">
+            <h3>Spark AI</h3>
+            <p class="portfolio-desc">Full website design and launch content for an AI automation and consulting brand entering the Dubai market.</p>
+            <div class="portfolio-metrics">
+              <div class="pf-metric"><b>+65%</b><span>Demo Requests</span></div>
+              <div class="pf-metric"><b>12</b><span>Pages Built</span></div>
+            </div>
+            <span class="portfolio-services">Website Design, Content Creation</span>
+            <span class="portfolio-link">View Project →</span>
+          </div>
+        </a>
+        <a href="project-lunchbeat.html" class="portfolio-card" data-services="Website Design,Content Creation" data-industry="Events">
+          <div class="portfolio-media">
+            <img src="lunchbeat.webp" alt="Lunch Beat DXB event website design" loading="lazy">
+            <span class="portfolio-badge">Events · Exhibitions</span>
+          </div>
+          <div class="portfolio-info">
+            <h3>Lunch Beat DXB</h3>
+            <p class="portfolio-desc">A dark, gallery-style site built to showcase exhibitions and events, with content built around each artist and show.</p>
+            <div class="portfolio-metrics">
+              <div class="pf-metric"><b>+50%</b><span>Ticket Enquiries</span></div>
+              <div class="pf-metric"><b>6</b><span>Exhibitions Launched</span></div>
+            </div>
+            <span class="portfolio-services">Website Design, Content Creation</span>
+            <span class="portfolio-link">View Project →</span>
+          </div>
+        </a>
+        <a href="project-marzang.html" class="portfolio-card" data-services="Content Creation" data-industry="Fashion">
+          <div class="portfolio-media">
+            <img src="marzang.webp" alt="Marzang fashion campaign creative" loading="lazy">
+            <span class="portfolio-badge">Fashion · E-commerce</span>
+          </div>
+          <div class="portfolio-info">
+            <h3>Marzang</h3>
+            <p class="portfolio-desc">Seasonal sale creative for a men's fashion e-commerce brand, built to convert browsers into same-day shoppers.</p>
+            <div class="portfolio-metrics">
+              <div class="pf-metric"><b>+38%</b><span>Click-Through Rate</span></div>
+              <div class="pf-metric"><b>25%</b><span>Season Sale Uplift</span></div>
+            </div>
+            <span class="portfolio-services">Content Creation</span>
+            <span class="portfolio-link">View Project →</span>
+          </div>
+        </a>
+        <a href="project-sparkventures.html" class="portfolio-card" data-services="Website Design,Content Creation" data-industry="Tech">
+          <div class="portfolio-media">
+            <img src="sparkventures.webp" alt="Spark Ventures website design" loading="lazy">
+            <span class="portfolio-badge">Tech · Venture Studio</span>
+          </div>
+          <div class="portfolio-info">
+            <h3>Spark Ventures</h3>
+            <p class="portfolio-desc">A venture studio site built to speak to founders and investors at once, pairing bold typography with real portfolio numbers.</p>
+            <div class="portfolio-metrics">
+              <div class="pf-metric"><b>900+</b><span>Jobs Created Messaging</span></div>
+              <div class="pf-metric"><b>12</b><span>Pages Built</span></div>
+            </div>
+            <span class="portfolio-services">Website Design, Content Creation</span>
+            <span class="portfolio-link">View Project →</span>
+          </div>
+        </a>
+        <a href="project-opitra.html" class="portfolio-card" data-services="Website Design,Content Creation" data-industry="Finance">
+          <div class="portfolio-media">
+            <img src="opitra.webp" alt="Opitra opinion trading app UI" loading="lazy">
+            <span class="portfolio-badge">Finance · Trading App</span>
+          </div>
+          <div class="portfolio-info">
+            <h3>Opitra</h3>
+            <p class="portfolio-desc">Full mobile app UI for an opinion-trading platform, designed to make prediction markets feel simple for first-time traders.</p>
+            <div class="portfolio-metrics">
+              <div class="pf-metric"><b>40+</b><span>Screens Designed</span></div>
+              <div class="pf-metric"><b>3</b><span>Core Flows</span></div>
+            </div>
+            <span class="portfolio-services">Website Design, Content Creation</span>
+            <span class="portfolio-link">View Project →</span>
+          </div>
+        </a>
+        <a href="project-vitacore.html" class="portfolio-card" data-services="Website Design,Meta Ads,Content Creation" data-industry="FMCG">
+          <div class="portfolio-media">
+            <img src="vitacore.webp" alt="VitaCore supplement brand creative" loading="lazy">
+            <span class="portfolio-badge">FMCG · Health &amp; Wellness</span>
+          </div>
+          <div class="portfolio-info">
+            <h3>VitaCore</h3>
+            <p class="portfolio-desc">Shopify store build and performance campaigns for an immune-support gummy brand, built to convert on ingredient trust.</p>
+            <div class="portfolio-metrics">
+              <div class="pf-metric"><b>+55%</b><span>Conversion Rate</span></div>
+              <div class="pf-metric"><b>Shopify</b><span>Store Platform</span></div>
+            </div>
+            <span class="portfolio-services">Website Design, Meta Ads, Content Creation</span>
+            <span class="portfolio-link">View Project →</span>
+          </div>
+        </a>
+        <a href="project-icubytes.html" class="portfolio-card" data-services="Website Design,Content Creation" data-industry="Tech">
+          <div class="portfolio-media">
+            <img src="icubytes.webp" alt="Icubytes website design" loading="lazy">
+            <span class="portfolio-badge">Tech · Software Development</span>
+          </div>
+          <div class="portfolio-info">
+            <h3>Icubytes</h3>
+            <p class="portfolio-desc">A prebuilt-solutions dev agency site built to showcase client logos and case studies alongside the pricing pitch.</p>
+            <div class="portfolio-metrics">
+              <div class="pf-metric"><b>6+</b><span>Client Logos Featured</span></div>
+              <div class="pf-metric"><b>100%</b><span>Ownership Messaging</span></div>
+            </div>
+            <span class="portfolio-services">Website Design, Content Creation</span>
             <span class="portfolio-link">View Project →</span>
           </div>
         </a>
