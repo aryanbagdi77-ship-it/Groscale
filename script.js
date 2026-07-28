@@ -49,4 +49,37 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
   }
+
+  // Portfolio filters: service pills + industry dropdown, combined (AND logic)
+  const filterPills = document.querySelectorAll('.filter-pill');
+  const industrySelect = document.getElementById('industry-filter');
+  const portfolioCards = document.querySelectorAll('.portfolio-card');
+
+  if (filterPills.length && portfolioCards.length) {
+    let activeService = 'all';
+
+    const applyFilters = () => {
+      const activeIndustry = industrySelect ? industrySelect.value : 'all';
+      portfolioCards.forEach(card => {
+        const services = (card.dataset.services || '').split(',').map(s => s.trim());
+        const industry = card.dataset.industry || '';
+        const serviceMatch = activeService === 'all' || services.includes(activeService);
+        const industryMatch = activeIndustry === 'all' || industry === activeIndustry;
+        card.classList.toggle('is-hidden', !(serviceMatch && industryMatch));
+      });
+    };
+
+    filterPills.forEach(pill => {
+      pill.addEventListener('click', () => {
+        filterPills.forEach(p => p.classList.remove('active'));
+        pill.classList.add('active');
+        activeService = pill.dataset.filter;
+        applyFilters();
+      });
+    });
+
+    if (industrySelect) {
+      industrySelect.addEventListener('change', applyFilters);
+    }
+  }
 });
