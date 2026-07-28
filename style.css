@@ -275,6 +275,14 @@ section{ padding:120px 0; }
 }
 .service-card:hover{ background:var(--panel); }
 .service-card:hover .service-num{ color:var(--accent); }
+.service-card:hover .service-icon{ color:var(--accent); }
+.service-icon{
+  width:30px;
+  height:30px;
+  color:var(--muted);
+  margin-bottom:18px;
+  transition:color .2s ease;
+}
 .service-num{
   font-family:var(--mono);
   font-size:13px;
