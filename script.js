@@ -50,16 +50,18 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // Portfolio filters: service pills + industry dropdown, combined (AND logic)
+  // Portfolio filters: service pills + custom industry dropdown, combined (AND logic)
   const filterPills = document.querySelectorAll('.filter-pill');
-  const industrySelect = document.getElementById('industry-filter');
+  const industryToggle = document.getElementById('industry-toggle');
+  const industryMenu = document.getElementById('industry-menu');
+  const industryLabel = document.getElementById('industry-label');
   const portfolioCards = document.querySelectorAll('.portfolio-card');
 
   if (filterPills.length && portfolioCards.length) {
     let activeService = 'all';
+    let activeIndustry = 'all';
 
     const applyFilters = () => {
-      const activeIndustry = industrySelect ? industrySelect.value : 'all';
       portfolioCards.forEach(card => {
         const services = (card.dataset.services || '').split(',').map(s => s.trim());
         const industry = card.dataset.industry || '';
@@ -78,8 +80,34 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     });
 
-    if (industrySelect) {
-      industrySelect.addEventListener('change', applyFilters);
+    if (industryToggle && industryMenu && industryLabel) {
+      const closeMenu = () => {
+        industryMenu.classList.remove('is-open');
+        industryToggle.setAttribute('aria-expanded', 'false');
+      };
+
+      industryToggle.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const isOpen = industryMenu.classList.toggle('is-open');
+        industryToggle.setAttribute('aria-expanded', String(isOpen));
+      });
+
+      industryMenu.querySelectorAll('li').forEach(item => {
+        item.addEventListener('click', () => {
+          industryMenu.querySelectorAll('li').forEach(li => li.classList.remove('active'));
+          item.classList.add('active');
+          activeIndustry = item.dataset.value;
+          industryLabel.textContent = activeIndustry === 'all' ? 'Industries' : item.textContent;
+          closeMenu();
+          applyFilters();
+        });
+      });
+
+      document.addEventListener('click', (e) => {
+        if (!industryToggle.contains(e.target) && !industryMenu.contains(e.target)) {
+          closeMenu();
+        }
+      });
     }
   }
 });
