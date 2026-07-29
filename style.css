@@ -310,12 +310,14 @@ section{ padding:120px 0; }
 }
 .service-body{ padding:28px 30px 32px; }
 .service-card h3{
-  font-size:23px;
-  margin-bottom:10px;
+  font-size:28px;
+  font-weight:900;
+  margin-bottom:12px;
   text-transform:none;
   letter-spacing:0;
+  line-height:1.05;
 }
-.service-card p{ color:var(--muted); font-size:14.5px; }
+.service-card p{ color:var(--muted); font-size:16.5px; font-weight:500; line-height:1.55; }
 
 /* ===== IMAGE STRIP ===== */
 .strip{ border-bottom:1px solid var(--line); }
@@ -570,6 +572,18 @@ section{ padding:120px 0; }
   max-height:560px;
   object-fit:cover;
   object-position:center top;
+}
+.project-video{
+  max-width:1240px;
+  margin:0 auto;
+  padding:0 32px 60px;
+}
+.project-video video{
+  width:100%;
+  border-radius:16px;
+  max-height:560px;
+  background:var(--panel);
+  display:block;
 }
 .project-body{ padding:0 0 100px; }
 .project-grid{
